@@ -1,0 +1,38 @@
+/* FreshFruit · dashboard.css — desktop: sidebar fixa + painéis divididos */
+.shell{display:grid;grid-template-columns:var(--sidebar) 1fr;min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:1.6rem 1.2rem;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2rem}
+.brand{font:800 1.7rem var(--font-display);letter-spacing:-.03em}.brand b{color:var(--y)}
+.nav{display:flex;flex-direction:column;gap:.3rem}
+.nav a{display:flex;align-items:center;gap:.75rem;padding:.75rem .9rem;border-radius:var(--r-md);color:var(--mute);font-weight:500;transition:.25s var(--ease)}
+.nav a:hover{background:var(--panel-2);color:var(--txt);transform:translateX(4px)}
+.nav a.active{background:linear-gradient(90deg,var(--y-glow),transparent);color:var(--y);box-shadow:inset 3px 0 var(--y)}
+.side-foot{margin-top:auto;font-size:.8rem;color:var(--mute);display:flex;gap:.6rem;align-items:center}
+.main{padding:2rem 2.5rem 3rem;max-width:1700px;width:100%}
+.topbar{display:flex;justify-content:space-between;align-items:end;margin-bottom:1.8rem}
+.topbar p{max-width:60ch;margin-top:.4rem}
+.top-meta{display:flex;gap:1rem;align-items:center}
+.clock{font:600 1.1rem var(--font-display);color:var(--y)}
+.fruits{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:1.25rem}
+.fruit-card:nth-child(2){animation-delay:.1s}.fruit-card:nth-child(3){animation-delay:.2s}
+.fc-head{display:flex;align-items:center;gap:.9rem}.fc-head .badge{margin-left:auto}
+.fc-head small{display:block;color:var(--mute)}
+.ppm{font:800 3.4rem var(--font-display);line-height:1;color:var(--c);margin:.9rem 0 .2rem}
+.ppm small{font:500 .95rem var(--font-body);color:var(--mute);margin-left:.3rem}
+.fc-stats{display:flex;justify-content:space-between;margin:.8rem 0 .5rem;font-size:.9rem;color:var(--mute)}.fc-stats b{color:var(--txt)}
+.spark{height:46px;margin-top:.4rem}
+.panels{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1.25rem;margin-bottom:1.25rem}
+.panel-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.legend{display:flex;gap:1rem;font-size:.85rem;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.35rem;background:var(--c)}
+#wave{height:300px}#shelf{height:200px}
+.shelf-list{display:flex;flex-direction:column;gap:.9rem;margin-top:1rem}
+.shelf-list .row{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;gap:.8rem;font-size:.9rem}
+.shelf-list .row b{text-align:right}
+.log{max-height:230px;overflow:auto}
+.log div{display:flex;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.9rem;animation:rise .4s var(--ease)}
+.log time{color:var(--mute);min-width:64px}
+.m-grid{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;margin-top:1rem}
+.m-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.2rem 0}
+.m-metrics div{background:#ffffff0d;border-radius:var(--r-md);padding:.8rem 1rem}
+.m-metrics small{display:block;color:var(--mute)}.m-metrics b{font:700 1.5rem var(--font-display)}
+.m-actions{display:flex;gap:.7rem;margin-top:1rem}

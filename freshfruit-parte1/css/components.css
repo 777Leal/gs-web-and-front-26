@@ -1,0 +1,38 @@
+/* FreshFruit · components.css — cards, botões, modais glass, tooltips, badges */
+.card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.25rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border-radius:var(--r-md);font-weight:600;transition:transform .25s var(--ease),background .2s,box-shadow .3s}
+.btn-primary{background:var(--y);color:#121214}
+.btn-primary:hover{background:var(--y-2);transform:translateY(-2px);box-shadow:0 10px 28px -8px var(--y-glow)}
+.btn-ghost{border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--y);color:var(--y)}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .7rem;border-radius:99px;font-size:.78rem;font-weight:600;border:1px solid currentColor}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ok{color:var(--green)}.warn{color:var(--y)}.critical{color:var(--red)}
+.critical.badge::before{animation:pulse-ring 1.4s infinite}
+.live-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse-ring 1.8s infinite}
+.bar{height:8px;border-radius:8px;background:var(--panel-2);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:var(--c,var(--y));transition:width .8s var(--ease)}
+.fruit-card{--c:var(--y);--mx:50%;--my:0%;cursor:pointer;overflow:hidden;transition:transform .35s var(--ease),border-color .3s,box-shadow .4s;animation:rise .7s var(--ease) backwards}
+.fruit-card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(320px circle at var(--mx) var(--my),color-mix(in srgb,var(--c) 22%,transparent),transparent 70%)}
+.fruit-card:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px);border-color:var(--c);box-shadow:0 24px 50px -20px color-mix(in srgb,var(--c) 45%,transparent)}
+.fruit-card:hover::before{opacity:1}
+.fruit-card .emoji{font-size:2.6rem;display:inline-block;transition:transform .5s var(--ease)}
+.fruit-card:hover .emoji{transform:scale(1.2) rotate(-10deg)}
+[data-tip]{position:relative}
+[data-tip]::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 10px);transform:translate(-50%,6px);white-space:nowrap;
+  background:#000c;backdrop-filter:blur(8px);border:1px solid var(--line);padding:.35rem .7rem;border-radius:var(--r-sm);font-size:.8rem;
+  opacity:0;pointer-events:none;transition:.2s var(--ease);z-index:20}
+[data-tip]:hover::after{opacity:1;transform:translate(-50%,0)}
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:50;opacity:0;pointer-events:none;transition:opacity .3s;
+  background:radial-gradient(circle at 50% 40%,rgba(255,215,0,.12),rgba(8,8,10,.7));backdrop-filter:blur(10px)}
+.modal.open{opacity:1;pointer-events:auto}
+.glass{position:relative;width:min(720px,90vw);padding:2rem;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 90px -20px #000,inset 0 1px 0 rgba(255,255,255,.15);transform:scale(.92) translateY(20px);transition:transform .45s var(--ease)}
+.modal.open .glass{transform:none}
+.close{position:absolute;top:1rem;right:1.2rem;font-size:1.6rem;color:var(--mute);transition:color .2s,transform .3s}
+.close:hover{color:var(--y);transform:rotate(90deg)}
+.ripple-wrap{position:relative;width:120px;height:120px;display:grid;place-items:center;font-size:3.4rem}
+.ripple-wrap i{position:absolute;inset:0;border-radius:50%;border:2px solid var(--c,var(--y));animation:ripple 2.4s ease-out infinite}
+.ripple-wrap i:nth-child(2){animation-delay:.8s}.ripple-wrap i:nth-child(3){animation-delay:1.6s}
+.toast{position:fixed;right:1.5rem;bottom:1.5rem;background:var(--y);color:#121214;font-weight:600;padding:.8rem 1.2rem;border-radius:var(--r-md);z-index:60;animation:rise .4s var(--ease)}
