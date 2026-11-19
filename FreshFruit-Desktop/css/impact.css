@@ -1,0 +1,23 @@
+/* FreshFruit · impact.css — KPIs, gráfico de barras e ranking de ONGs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1.25rem}
+.kpi b{font-size:2.4rem;color:var(--green)}
+#bars{height:280px}
+.ngo-row{display:grid;grid-template-columns:1fr 90px;gap:.3rem .8rem;align-items:center;margin-bottom:1.1rem;font-size:.9rem}
+.ngo-row .bar{grid-column:1/-1;order:3}.ngo-row b{text-align:right}
+.foot-note{margin-top:1rem;font-size:.82rem}
+.law details{border-bottom:1px solid var(--line);padding:.7rem 0}.law summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.law summary::after{content:"+";color:var(--y);font-size:1.2rem;line-height:1}.law details[open] summary::after{content:"\2212"}
+.law p{margin-top:.6rem;color:var(--mute);font-size:.92rem}.law a{color:var(--y);text-decoration:underline;text-underline-offset:3px}
+.chk{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;font-size:.92rem;cursor:pointer}.chk input{accent-color:var(--y);width:17px;height:17px;margin-top:.2rem;flex:none}
+#cbar{width:0}#check{margin-top:.8rem}.legal-note{margin-top:.8rem;font-size:.82rem}
+@media (max-width:1180px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){
+  .kpis{gap:.75rem}.kpi b{font-size:1.7rem}.kpi span{font-size:.82rem}
+  #bars{height:220px}
+  .stack thead{display:none}
+  .stack tr{display:grid;grid-template-columns:1fr auto;grid-template-areas:"lot type" "to kg" "date val";gap:.15rem .8rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+  .stack td{padding:0;border:0}
+  .c-lot{grid-area:lot;font-weight:600}.c-type{grid-area:type;justify-self:end}.c-to{grid-area:to;color:var(--mute)}
+  .c-kg{grid-area:kg}.c-date{grid-area:date;color:var(--mute);font-size:.82rem}.c-val{grid-area:val}
+  .law summary{font-size:.95rem}
+}

@@ -1,0 +1,28 @@
+/* FreshFruit · connection.css — mapa de geofencing e painel de decisão */
+.conn{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.25rem;margin-bottom:1.25rem}
+.map-wrap{position:relative}
+#map{height:460px;background:#15151a;border:1px solid var(--line);border-radius:var(--r-md);cursor:crosshair}
+.maptip{position:absolute;pointer-events:none;background:#000d;border:1px solid var(--line);padding:.45rem .7rem;border-radius:var(--r-sm);font-size:.82rem;line-height:1.4;z-index:5}
+.map-ctl{display:grid;gap:.6rem;margin-top:1rem}.map-ctl label b{color:var(--y);margin-left:.4rem}
+#decision{display:flex;flex-direction:column}
+.d-title{font:700 1.7rem/1.15 var(--font-display);margin:.9rem 0 .5rem;letter-spacing:-.02em}
+#decision .m-metrics{grid-template-columns:repeat(3,1fr)}#decision .m-metrics b{font-size:1.05rem;line-height:1.3;display:block}
+.d-actions{display:flex;gap:.7rem;margin-top:auto;padding-top:1rem}
+.nego{margin-bottom:1.25rem}
+.nego-row{display:grid;grid-template-columns:1fr 130px auto;gap:1rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.nego-row:last-child{border-bottom:0}.nego-row small{display:block;color:var(--mute);font-size:.82rem}
+.nego-bid{font:700 1.35rem var(--font-display);text-align:right}.nego-bid small{display:inline;margin-left:.2rem}
+.nego-act{display:flex;gap:.5rem;justify-content:flex-end}.nego-act .btn{padding:.45rem .8rem;font-size:.88rem}
+@media (max-width:1180px){.conn{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){
+  #map{height:340px;touch-action:pan-y}
+  .maptip{max-width:170px}
+  .d-title{font-size:1.4rem}
+  #decision .m-metrics{grid-template-columns:1fr}
+  #decision .m-metrics div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+  #decision .m-metrics b{text-align:right}
+  .d-actions{flex-direction:column}
+  .nego-row{grid-template-columns:1fr auto;gap:.6rem .8rem}
+  .nego-act{grid-column:1/-1}.nego-act .btn{flex:1;min-height:40px}
+  #recip th:nth-child(2),#recip td:nth-child(2){display:none}
+}
