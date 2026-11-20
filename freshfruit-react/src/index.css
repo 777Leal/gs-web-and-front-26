@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* Tokens do FreshFruit (Dark & Amarelo). "static" mantém todas as variáveis
+   disponíveis em runtime, inclusive as usadas em estilos inline e no JS. */
+@theme static {
+  --color-bg: #121214;
+  --color-panel: #1a1a1e;
+  --color-panel-2: #222228;
+  --color-line: #2e2e36;
+  --color-hair: rgba(255, 255, 255, 0.07);
+  --color-glass: rgba(26, 26, 30, 0.66);
+  --color-txt: #f4f1e6;
+  --color-mute: #9a9aa6;
+  --color-y: #f6e05e;
+  --color-y-2: #d69e2e;
+  --color-y-glow: rgba(246, 224, 94, 0.22);
+  --color-green: #9adb74;
+  --color-green-deep: #1e3a28;
+  --color-red: #ff6b5e;
+  --color-blue: #6ab3f3;
+
+  --font-display: "Fredoka", "Varela Round", "Arial Rounded MT Bold", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", "Varela Round", "Segoe UI", system-ui, sans-serif;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Breakpoints do projeto: desk = 901px (sidebar fixa), wide = 1181px.
+     max-desk: ≤900px (celular/tablet) · max-wide: ≤1180px */
+  --breakpoint-desk: 901px;
+  --breakpoint-wide: 1181px;
+
+  --animate-pulse-ring: pulse-ring 1.4s infinite;
+  --animate-pulse-ring-slow: pulse-ring 1.8s infinite;
+  --animate-rise: rise 0.7s var(--ease-soft) backwards;
+  --animate-rise-fast: rise 0.4s var(--ease-soft);
+  --animate-flash: flash 0.8s;
+  --animate-ripple: ripple 2.4s ease-out infinite;
+  --animate-aura: aura 30s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--color-y-glow); }
+  100% { box-shadow: 0 0 0 14px transparent; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes flash {
+  from { color: #fff; text-shadow: 0 0 16px var(--color-y); }
+}
+@keyframes ripple {
+  from { opacity: 0.9; transform: scale(0.4); }
+  to { opacity: 0; transform: scale(1.6); }
+}
+@keyframes aura {
+  to { transform: translate3d(-4%, 3%, 0) scale(1.1); }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: clamp(2.3rem, 3.3vw, 3.3rem); font-weight: 700; line-height: 1.05; }
+  h2 { font-size: 1.4rem; font-weight: 600; line-height: 1.1; }
+  h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.1; }
+  button { cursor: pointer; }
+  canvas { display: block; width: 100%; }
+  :focus-visible {
+    outline: 3px solid var(--color-y);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection { background: var(--color-y); color: var(--color-bg); }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
